@@ -18,6 +18,7 @@
    - Método: Inspeccionar el código fuente
 
 4. **FLAG{photon_escalated}**
+   Erroneo
 
    - Ubicación: API `/api/check` con cookie modificada
    - Método:
@@ -30,17 +31,19 @@
    - Ubicación: `/unlock` con hash SHA-1 correcto
    - Método:
      1. Recolectar las 4 banderas anteriores
-     2. Ordenarlas alfabéticamente
-     3. Concatenar sin espacios
-     4. Calcular SHA-1
-     5. Acceder a `/unlock?key=<hash>`
+     2. Extraer solo el contenido dentro de las llaves (sin FLAG{})
+     3. Ordenar alfabéticamente
+     4. Concatenar sin espacios
+     5. Calcular SHA-1
+     6. Acceder a `/unlock?key=<hash>`
 
 6. **FLAG{photon_heist_complete}**
    - Ubicación: Contenido de `core_blueprint.bin`
    - Método:
-     1. Descargar el archivo
-     2. XOR cada byte con 0x42
+     1. Descargar el archivo desde la página de unlock
+     2. XOR cada byte con 0x42 (decimal 66)
      3. Leer el contenido descifrado
+     4. Ingresar la flag en el formulario de la página de unlock
 
 ## Notas para Profesores
 
@@ -56,3 +59,4 @@
 - Los estudiantes deben seguir un proceso paso a paso para descubrir cada flag
 - No hay soluciones directas en el código fuente
 - El lab es auto-contenido y no requiere configuración adicional
+- Se recomienda usar CyberChef para las operaciones de XOR y SHA-1
