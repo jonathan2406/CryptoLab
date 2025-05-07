@@ -119,7 +119,7 @@ def unlock():
         return "Flag incorrecta", 403
 
     key = request.args.get("key", "").lower()
-    expected = "99879143a6feb8f2e96606c1c0bbb48478ba3f3f"
+    expected = "7c2572ab6333f87e699738dbf9ab8da6ccc88149"
     if key == expected:
         return render_template("unlock.html", flag=FLAGS["unlocked"])
     return "Invalid key", 403
