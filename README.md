@@ -1,4 +1,4 @@
-# Photon Heist Lab - Soluciones
+# Photon Heist Lab - Soluciones (Para profesor)
 
 ## Flags y Ubicaciones
 
