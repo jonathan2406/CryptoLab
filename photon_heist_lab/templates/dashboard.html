@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photon Heist Lab - Panel</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>PANEL DE CONTROL</h1>
+
+      <div id="status"></div>
+      <div id="flag" style="display: none"></div>
+
+      <div id="instructions" style="display: none">
+        <p>
+          Reúne las cuatro banderas obtenidas hasta ahora, ordénalas
+          alfabéticamente, concaténalas sin espacios (ejemplo:
+          bandera_1bandera_2bandera_3bandera_4), calcula su SHA-1 (usa cualquier
+          herramienta online) y visita
+          <strong>/unlock?key=&lt;hash&gt;</strong>.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      (async () => {
+        const kv = document.cookie
+          .split("; ")
+          .find((c) => c.startsWith("user_data="));
+        if (!kv) {
+          document.getElementById("status").textContent =
+            "No se encontró cookie — inicia sesión.";
+          return;
+        }
+
+        const safeJSON = decodeURIComponent(kv.split("=")[1]);
+        let data;
+        try {
+          data = JSON.parse(safeJSON);
+        } catch {
+          return;
+        }
+
+        const sig = [...data.role].reverse().join("");
+        const res = await fetch(`/api/check?sig=${sig}`);
+        const out = await res.json();
+
+        if (out.flag) {
+          document.getElementById("status").textContent = "Hola admin 👑";
+          document.getElementById("flag").textContent = out.flag;
+          document.getElementById("flag").style.display = "block";
+          document.getElementById("instructions").style.display = "block";
+        } else if (out.status === "user_ok") {
+          document.getElementById("status").textContent =
+            "Bienvenido, usuario normal. Quizas dejes de serlo si buscas en las galletas";
+        } else {
+          document.getElementById("status").textContent =
+            "Firma incorrecta o cookie alterada.";
+        }
+      })();
+    </script>
+  </body>
+</html>

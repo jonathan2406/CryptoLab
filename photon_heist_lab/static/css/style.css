@@ -1,0 +1,93 @@
+:root {
+  --neon-blue: #00eaff;
+  --dark-bg: #0a0a0c;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--neon-blue);
+  font-family: "Share Tech Mono", monospace;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+h1 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+h1::after {
+  content: "|";
+  position: absolute;
+  right: -10px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.btn {
+  background: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 10px 20px;
+  font-family: "Share Tech Mono", monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.btn:hover {
+  background: var(--neon-blue);
+  color: var(--dark-bg);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="password"] {
+  background: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 10px;
+  font-family: "Share Tech Mono", monospace;
+  width: 100%;
+  max-width: 300px;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: var(--neon-blue);
+  animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photon Heist Lab - Acceso</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ACCESO AL SISTEMA</h1>
+      <p>Ingresa la contraseña para acceder al panel de control.</p>
+      <p>
+        Quizas haya alguna pista en rutas que no queremos que veas, los
+        robots...
+      </p>
+      <form method="POST" action="/login">
+        <div class="form-group">
+          <input
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">Acceder</button>
+      </form>
+      <!-- FLAG{hash_broken} -->
+    </div>
+  </body>
+</html>

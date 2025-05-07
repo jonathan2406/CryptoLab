@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photon Heist Lab - Acceso al Núcleo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ACCESO AL NÚCLEO</h1>
+      <p>{{ flag }}</p>
+      <p>Has encontrado la llave para acceder al núcleo del Photon Core.</p>
+      <p>
+        Descarga
+        <a href="/static/files/core_blueprint.bin" class="btn"
+          >core_blueprint.bin</a
+        >
+        y XOR cada byte con 0x42 (decimal 66) para revelar los planos del Photon
+        y la bandera final.
+      </p>
+      <p>
+        El chef es tu mejor amigo:
+        <a href="https://gchq.github.io/CyberChef">CyberChef</a>
+      </p>
+
+      <form method="POST" action="{{ url_for('unlock') }}" class="form-group">
+        <h2>Ingresa la Flag Final</h2>
+        <p>
+          <strong>¡Ojo!</strong> Si no tienes la bandera final, no podrás
+          desbloquear el núcleo.
+        </p>
+        <input type="text" name="final_flag" placeholder="FLAG{...}" required />
+        <button type="submit" class="btn">Verificar Flag</button>
+      </form>
+    </div>
+
+    <script>
+      function createConfetti() {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+
+      // Crear confeti cada 100ms
+      setInterval(createConfetti, 100);
+    </script>
+  </body>
+</html>

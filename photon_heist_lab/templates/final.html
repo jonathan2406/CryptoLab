@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photon Heist Lab - ¡Misión Completada!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>¡MISIÓN COMPLETADA!</h1>
+      <p>Has logrado infiltrarte exitosamente en el sistema del Photon Core.</p>
+      <p>
+        Todas las banderas han sido recolectadas y el núcleo ha sido
+        desbloqueado.
+      </p>
+      <p>¡Excelente trabajo, agente!</p>
+      <a href="/" class="btn">Volver al Inicio</a>
+    </div>
+
+    <script>
+      function createConfetti() {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+
+      // Crear confeti cada 100ms
+      setInterval(createConfetti, 100);
+    </script>
+  </body>
+</html>

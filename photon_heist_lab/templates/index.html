@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photon Heist Lab - Misión</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>PHOTON HEIST LAB</h1>
+      <p>
+        Bienvenido, agente de Darkwall. Tu misión es infiltrarte en el sistema
+        de seguridad del Photon Core y extraer los planos del dispositivo.
+      </p>
+      <p>
+        El sistema está protegido por múltiples capas de seguridad. Deberás:
+      </p>
+      <ul>
+        <li>Realizar reconocimiento inicial</li>
+        <li>Descifrar credenciales ocultas</li>
+        <li>Elevar privilegios</li>
+        <li>Desbloquear el núcleo</li>
+      </ul>
+      <a href="/login" class="btn">Iniciar Reconocimiento</a>
+    </div>
+  </body>
+</html>
