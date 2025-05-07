@@ -132,7 +132,5 @@ def final():
 if __name__ == "__main__":
     bootstrap_assets()
     app.run(host="0.0.0.0", port=8000, debug=False)
-
-# Handler for Vercel
-def handler(request):
-    return app(request)
+else:
+    bootstrap_assets()
