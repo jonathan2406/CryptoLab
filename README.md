@@ -5,6 +5,17 @@
 > sencillas (recon, metadatos, cracking online, manipulación de cookies y XOR)
 > usando sólo el navegador + sitios online.
 
+## 🧰 Técnicas practicadas
+
+| # | Técnica / Concepto                          |
+|---|---------------------------------------------|
+| 1 | Reconocimiento web (`robots.txt`, rutas ocultas) |
+| 2 | Metadatos de imágenes (EXIF → Base64)       |
+| 3 | Crackeo de hashes MD5 con CrackStation      |
+| 4 | Manipulación de cookies y escalación de privilegios |
+| 5 | SHA‑1 hashing y verificación de integridad  |
+| 6 | Decifrado binario con XOR (byte 0x42)       |
+
 ---
 
 ## 0 · Historia
